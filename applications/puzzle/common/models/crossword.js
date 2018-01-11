@@ -9,7 +9,7 @@ module.exports = function(Crossword) {
   Crossword.get = function(cb) {
     
     var etcdPuzzleResp = etcd.getSync("puzzle");
-    
+    console.log(etcdPuzzleResp.err);
     if (etcdPuzzleResp && !etcdPuzzleResp.err) {
 
       console.log(`Responding with cache`);
