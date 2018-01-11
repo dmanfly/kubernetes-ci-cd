@@ -12,12 +12,9 @@ export function getPods () {
         resp.json()
       ))
       .then(json => {
-        const pods = []
-        if (json.pods){
-            pods = json.pods.map(pod => (
+        const pods = json.pods ? json.pods.map(pod => (
                 concatServiceName(pod.key)
-            ));
-        }
+            )) : [];
         dispatch({type: types.websocket.GET_PODS, pods});
       })
       .catch(err => {
