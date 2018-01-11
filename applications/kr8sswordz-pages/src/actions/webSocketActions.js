@@ -14,7 +14,7 @@ export function getPods () {
       .then(json => {
         const pods = []
         if (json.pods){
-            const pods = json.pods.map(pod => (
+            pods = json.pods.map(pod => (
                 concatServiceName(pod.key)
             ));
         }
